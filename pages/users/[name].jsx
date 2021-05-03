@@ -31,7 +31,7 @@ export const getServerSideProps = async ({ query }) => {
 
     const userRes = await fetch(`https://api.github.com/users/${name}`, {
       headers: {
-        Authorization: "token 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",
+        Authorization: process.env.GITGUB_TOKEN,
       },
     });
     if (userRes.status === 200) {
@@ -43,7 +43,7 @@ export const getServerSideProps = async ({ query }) => {
       `https://api.github.com/users/${name}/repos?sort=updated&page=${page}&per_page=10`,
       {
         headers: {
-          Authorization: "token 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",
+          Authorization: process.env.GITGUB_TOKEN,
         },
       },
     );
